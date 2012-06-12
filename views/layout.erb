@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= @title %></title>
+  <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript">
+    $(function() {
+        setInterval(loadTable,1000);  // invoke load every second
+        loadTable(); // load on initial page loaded
+    });
+
+    function loadTable() {
+        $('#track').load(window.location.href + ' #info');
+    }
+  </script>
+</head>
+<body>
+
+  <div id="header">
+    <img class="logo" src="/images/logo.png">
+  </div>
+
+  <div id="track">
+    <div id="info">
+      <div id="trackName">
+        <img class="icon" src="/images/song.png" /><%= trackName %>
+      </div>
+
+      <div id="trackArtist">
+        <img class="icon" src="/images/artist.png" /><%= trackArtist %>
+      </div>
+
+      <div id="trackAlbum">
+        <img class="icon" src="/images/album.png" /><%= trackAlbum %>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    Powered by <a href="/spotify">Spotify</a> and <a href="/sinatra">Sinatra</a>.
+  </div>
+</body>
+</html>
