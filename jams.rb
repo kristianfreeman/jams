@@ -6,37 +6,25 @@ set :logging, nil
 get '/' do
 
   def status
-
-    status = Appscript::app('iTunes').player_state.get.to_s
-    return status
-
+    status = Appscript::app('Rdio').player_state.get.to_s
   end
 
   def trackName
-
-    trackName = Appscript::app('iTunes').current_track.name.get
-    return trackName
-
+    trackName = Appscript::app('Rdio').current_track.name.get
   end
 
   def trackArtist
-
-    trackArtist = Appscript::app('iTunes').current_track.artist.get
-    return trackArtist
-
+    trackArtist = Appscript::app('Rdio').current_track.artist.get
   end
 
   def trackAlbum
-
-    trackAlbum = Appscript::app('iTunes').current_track.album.get
-    return trackAlbum
-
+    trackAlbum = Appscript::app('Rdio').current_track.album.get
   end
 
-  @title = "Red Sashimi is kicking out the jams!"
+  @title = "Now playing #{ trackName } by #{ trackArtist }"
 
   unless status == "paused"
-    "Now playing #{ trackName } by #{ trackArtist }"
+    @title
   end
 
   erb :layout
@@ -47,5 +35,5 @@ get '/sinatra' do
 end
 
 get '/itunes' do
-  redirect "http://itunes.com"
+  redirect "http://rdio.com"
 end

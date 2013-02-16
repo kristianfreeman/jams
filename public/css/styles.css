@@ -5,11 +5,6 @@ body {
   margin: 0px !important;
 }
 
-#header {
-  margin-top: 20px;
-  text-align: center;
-}
-
 img.logo {
   width: 100px;
   height: 100px;
@@ -49,8 +44,8 @@ img.icon {
   height: 20px;
 }
 
-#footer {
-  margin-top: 10px;
+#block {
+  margin: 10px;
   font-size: .5em;
   text-align: center;
 }
