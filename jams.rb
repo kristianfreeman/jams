@@ -6,19 +6,19 @@ set :logging, nil
 get '/' do
 
   def status
-    status = Appscript::app('Rdio').player_state.get.to_s
+    status = Appscript::app('iTunes').player_state.get.to_s
   end
 
   def trackName
-    trackName = Appscript::app('Rdio').current_track.name.get
+    trackName = Appscript::app('iTunes').current_track.name.get
   end
 
   def trackArtist
-    trackArtist = Appscript::app('Rdio').current_track.artist.get
+    trackArtist = Appscript::app('iTunes').current_track.artist.get
   end
 
   def trackAlbum
-    trackAlbum = Appscript::app('Rdio').current_track.album.get
+    trackAlbum = Appscript::app('iTunes').current_track.album.get
   end
 
   @title = "Now playing #{ trackName } by #{ trackArtist }"
